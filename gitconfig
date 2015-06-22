@@ -1,0 +1,73 @@
+[core]
+excludesfile  = /opt/boxen/config/git/gitignore
+quotepath     = false
+trustctime    = false
+editor        = /usr/bin/vim
+[difftool "sourcetree"]
+cmd           = opendiff \"$LOCAL\" \"$REMOTE\"
+path          =
+[mergetool "sourcetree"]
+cmd           = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+[mergetool]
+keepBackup    = true
+[filter "media"]
+required      = true
+clean         = git media clean %f
+smudge        = git media smudge %f
+[merge]
+tool          = opendiff
+[push]
+default       = simple
+[alias]
+co            = checkout
+ci            = commit
+br            = branch
+fe            = "fetch -p "
+feo           = "fetch -p origin"
+ps            = push
+pso           = "push origin"
+pl            = "pull1 --rebase"
+plo           = "pull --rebase origin"
+rb            = rebase
+rbc           = "rebase --continue"
+rba           = "rebase --abort"
+ls            = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+ll            = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+fl            = log -u
+r             = reset
+r1            = reset HEAD^
+r2            = reset HEAD^^
+rh            = reset --hard
+st            = "status -sb"
+sl            = stash list
+ss            = stash save
+sp            = stash pop stash@{0}
+sp1           = stash pop stash@{1}
+sp2           = stash pop stash@{2}
+mg            = "merge --no-ff"
+lg1           = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+lg2           = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+lg            = !"git lg1"
+today         = !git log --since=midnight --author="$(git config user.name)" --oneline
+yesterday   	= !git log --graph --since=day.before.yesterday.midnight --until=midnight --author="$(git config user.name)" --oneline
+
+[user]
+name          = Terry Tang
+email         = thuai.cn@gmail.com
+
+[hub]
+protocol      = https
+
+[credential]
+	helper = osxkeychain
+[credential "https://github.com"]
+	username = thuai
+[filter "hawser"]
+clean         = git hawser clean %f
+smudge        = git hawser smudge %f
+required      = true
+[filter "lfs"]
+clean         = git lfs clean %f
+smudge        = git lfs smudge %f
+required      = true
