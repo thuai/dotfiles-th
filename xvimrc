@@ -1,0 +1,9 @@
+noremap <C-e> <C-o>$ 
+set ignorecase
+set wrapscan
+set guioptions=r
+nmap n e
+
+#inoremap jj <Esc>
+#nmap <S-Enter> O<Esc>j 
+nmap <CR> o<Esc>kj

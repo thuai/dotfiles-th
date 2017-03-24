@@ -69,3 +69,33 @@ zsh
 echo $SHELL
 cat /etc/shells
 curl -L http://install.ohmyz.sh | sh
+#1437573600
+zsh
+cd /Users/thuai/Downloads/pjproject-2.4; clear; pwd
+pwd
+ls
+./install-sh 
+sh install-sh 
+cd /Users/thuai/Downloads/pjproject-2.4; clear; pwd
+make clean
+./configure --help
+./configure
+ls
+make
+ls
+cd Downloads/
+cd pro
+ls
+ls
+ls
+cd Documents/
+ls
+cd PJSIP/
+ls
+cd pjproject-2.5.5
+ls
+ls
+ll
+ls -l
+./config-iphone
+chsh -s /bin/zsh

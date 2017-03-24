@@ -1,0 +1,6 @@
+;;; Automatically generated on Mon Nov  9 08:02:07 2015
+;;; Invoked by thuai@bogon using 24.5.1
+(setq-default kill-ring '("" "tutorial"))
+(setq-default occur-collect-regexp-history '("\\1"))
+(setq-default serial-name-history '("/dev/ttys0"))
+(setq-default serial-speed-history '("9600" "1200" "2400" "4800" "14400" "19200" "28800" "38400" "57600" "115200"))

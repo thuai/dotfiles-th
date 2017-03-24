@@ -1,14 +1,14 @@
 [core]
-excludesfile  = /opt/boxen/config/git/gitignore
+	excludesfile = /Users/terry/.gitignore_global
 quotepath     = false
 trustctime    = false
 editor        = /usr/bin/vim
 [difftool "sourcetree"]
-cmd           = opendiff \"$LOCAL\" \"$REMOTE\"
-path          =
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-cmd           = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
 [mergetool]
 keepBackup    = true
 [filter "media"]
@@ -40,6 +40,7 @@ r1            = reset HEAD^
 r2            = reset HEAD^^
 rh            = reset --hard
 st            = "status -sb"
+sts 				 	= "status -s"
 sl            = stash list
 ss            = stash save
 sp            = stash pop stash@{0}
@@ -51,18 +52,19 @@ lg2           = log --graph --abbrev-commit --decorate --format=format:'%C(bold 
 lg            = !"git lg1"
 today         = !git log --since=midnight --author="$(git config user.name)" --oneline
 yesterday   	= !git log --graph --since=day.before.yesterday.midnight --until=midnight --author="$(git config user.name)" --oneline
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
 [user]
-name          = Terry Tang
-email         = thuai.cn@gmail.com
+	name = Terry Tang
+	email = thuai.cn@gmail.com
+	signingkey = 154CB0E4
 
 [hub]
 protocol      = https
-
 [credential]
 	helper = osxkeychain
-[credential "https://github.com"]
-	username = thuai
+#[credential "https://github.com"]
+#	username = thuai
 [filter "hawser"]
 clean         = git hawser clean %f
 smudge        = git hawser smudge %f
@@ -71,3 +73,11 @@ required      = true
 clean         = git lfs clean %f
 smudge        = git lfs smudge %f
 required      = true
+[gpg]
+	program = gpg2
+[http]
+	postBuffer = 2M
+#   sslVerify = false
+[commit]
+	template = /Users/thuai/.stCommitMsg
+#	gpgsign = true
